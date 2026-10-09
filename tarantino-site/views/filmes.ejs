@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Filmes</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <div class="conteudo">
+    <h1>Filmes</h1>
+    <a class="btn btn-novo" href="/filmes/novo">+ Novo filme</a>
+
+    <table>
+      <tr>
+        <th>Título</th>
+        <th>Ano</th>
+        <th>Classificação</th>
+        <th>Gênero</th>
+        <th>Atores</th>
+        <th>Ações</th>
+      </tr>
+      <% filmes.forEach(function(f) { %>
+        <tr>
+          <td><%= f.titulo %></td>
+          <td><%= f.ano %></td>
+          <td><%= f.classificacao %></td>
+          <td><%= f.genero || '—' %></td>
+          <td><%= f.atores || '—' %></td>
+          <td class="acoes">
+            <a class="btn btn-editar" href="/filmes/<%= f.id %>/editar">Editar</a>
+            <form method="POST" action="/filmes/<%= f.id %>/excluir" onsubmit="return confirm('Tem certeza que deseja excluir este filme?')">
+              <button class="btn btn-excluir" type="submit">Excluir</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </table>
+  </div>
+
+</body>
+</html>

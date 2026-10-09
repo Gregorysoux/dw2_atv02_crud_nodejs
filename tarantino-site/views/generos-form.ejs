@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title><%= tituloPagina %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <div class="conteudo">
+    <h1><%= tituloPagina %></h1>
+
+    <% if (erro) { %>
+      <p class="erro"><%= erro %></p>
+    <% } %>
+
+    <form class="formulario" method="POST" action="<%= acao %>">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" value="<%= genero.nome %>" required>
+
+      <label for="descricao">Descrição</label>
+      <input type="text" id="descricao" name="descricao" value="<%= genero.descricao %>">
+
+      <div class="botoes">
+        <button class="btn btn-novo" type="submit">Salvar</button>
+        <a class="btn btn-cancelar" href="/generos">Cancelar</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

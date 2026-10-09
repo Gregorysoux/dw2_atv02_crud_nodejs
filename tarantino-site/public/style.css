@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f2f2f2;
+  color: #222;
+}
+
+.navbar {
+  background-color: #1a1a1a;
+  padding: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #e50914;
+}
+
+.conteudo {
+  padding: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #e50914;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #e6e6e6;
+}
+
+/* ---------- CRUD ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-novo { background-color: #e50914; }
+.btn-novo:hover { background-color: #b30710; }
+
+.btn-editar { background-color: #1a1a1a; }
+.btn-editar:hover { background-color: #444; }
+
+.btn-excluir { background-color: #888; }
+.btn-excluir:hover { background-color: #e50914; }
+
+.btn-cancelar { background-color: #888; }
+.btn-cancelar:hover { background-color: #666; }
+
+td.acoes { white-space: nowrap; }
+td.acoes form { display: inline; margin: 0; }
+
+.formulario {
+  max-width: 500px;
+  margin-top: 15px;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 14px;
+  font-weight: bold;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="date"],
+.formulario select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.checks { margin-top: 5px; }
+
+.formulario label.check {
+  display: block;
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+.botoes { margin-top: 22px; }
+
+.erro {
+  background-color: #fde3e3;
+  color: #b71c1c;
+  padding: 10px 12px;
+  border-radius: 4px;
+  max-width: 500px;
+}
+
+.cards { margin-top: 25px; }
+
+.card {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #999;
+  border-radius: 6px;
+  padding: 18px 28px;
+  margin-right: 12px;
+  color: #222;
+  text-decoration: none;
+  text-align: center;
+}
+
+.card strong {
+  display: block;
+  font-size: 32px;
+  color: #e50914;
+}
+
+.card:hover { border-color: #e50914; }

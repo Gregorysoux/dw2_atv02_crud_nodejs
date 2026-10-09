@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Atores</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <div class="conteudo">
+    <h1>Atores</h1>
+    <a class="btn btn-novo" href="/atores/novo">+ Novo ator</a>
+
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Nacionalidade</th>
+        <th>Data de nascimento</th>
+        <th>Filmes</th>
+        <th>Ações</th>
+      </tr>
+      <% atores.forEach(function(a) { %>
+        <tr>
+          <td><%= a.nome %></td>
+          <td><%= a.nacionalidade %></td>
+          <td><%= formatarData(a.nascimento) %></td>
+          <td><%= a.filmes || '—' %></td>
+          <td class="acoes">
+            <a class="btn btn-editar" href="/atores/<%= a.id %>/editar">Editar</a>
+            <form method="POST" action="/atores/<%= a.id %>/excluir" onsubmit="return confirm('Tem certeza que deseja excluir este ator?')">
+              <button class="btn btn-excluir" type="submit">Excluir</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </table>
+  </div>
+
+</body>
+</html>

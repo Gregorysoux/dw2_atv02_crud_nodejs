@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title><%= tituloPagina %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <div class="conteudo">
+    <h1><%= tituloPagina %></h1>
+
+    <% if (erro) { %>
+      <p class="erro"><%= erro %></p>
+    <% } %>
+
+    <form class="formulario" method="POST" action="<%= acao %>">
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" name="titulo" value="<%= filme.titulo %>" required>
+
+      <label for="ano">Ano</label>
+      <input type="number" id="ano" name="ano" value="<%= filme.ano %>" required>
+
+      <label for="classificacao">Classificação</label>
+      <select id="classificacao" name="classificacao">
+        <% ['Livre', '10 anos', '12 anos', '14 anos', '16 anos', '18 anos'].forEach(function(c) { %>
+          <option value="<%= c %>" <%= filme.classificacao === c ? 'selected' : '' %>><%= c %></option>
+        <% }); %>
+      </select>
+
+      <label for="genero_id">Gênero</label>
+      <select id="genero_id" name="genero_id">
+        <option value="">— sem gênero —</option>
+        <% generos.forEach(function(g) { %>
+          <option value="<%= g.id %>" <%= String(filme.genero_id) === String(g.id) ? 'selected' : '' %>><%= g.nome %></option>
+        <% }); %>
+      </select>
+
+      <label>Atores</label>
+      <div class="checks">
+        <% atores.forEach(function(a) { %>
+          <label class="check">
+            <input type="checkbox" name="atores" value="<%= a.id %>" <%= atoresDoFilme.includes(a.id) ? 'checked' : '' %>>
+            <%= a.nome %>
+          </label>
+        <% }); %>
+      </div>
+
+      <div class="botoes">
+        <button class="btn btn-novo" type="submit">Salvar</button>
+        <a class="btn btn-cancelar" href="/filmes">Cancelar</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
